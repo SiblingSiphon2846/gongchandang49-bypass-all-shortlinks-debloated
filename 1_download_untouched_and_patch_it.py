@@ -226,6 +226,10 @@ def modify_file_with_my_fixes(input_file, output_file):
     # p0008874 - pay.inc fix
     content = content.replace("(blogsward|coinjest).com", "(blogsward|coinjest).com|coinsimulator.(io|online)")
 
+    # p0008874 - exe.io fix
+    content = content.replace("(exeo|exego).app|(falpus|exe-urls|exnion).com|4ace.online", "(exeo|exego).app|(falpus|exe-urls|exnion|exe-links).com|4ace.online")
+
+  
     if not content.endswith("\n"):
         content += "\n"
 
