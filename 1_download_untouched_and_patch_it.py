@@ -229,11 +229,6 @@ def modify_file_with_my_fixes(input_file, output_file):
     # p0008874 - exe.io fix
     content = content.replace("(exeo|exego).app|(falpus|exe-urls|exnion).com|4ace.online", "(exeo|exego).app|(falpus|exe-urls|exnion|exe-links).com|4ace.online")
 
-    # p0008874 - Actual Debloat (Faucet extra click)
-    content = content.replace("BypassedByBloggerPemula(/(bnbfree|freeth|freebitco).in/", "//BypassedByBloggerPemula(/(bnbfree|freeth|freebitco).in/")
-    content = content.replace("BypassedByBloggerPemula(/bigbtc.win/", "//BypassedByBloggerPemula(/bigbtc.win/")
-    content = content.replace("BypassedByBloggerPemula(/firefaucet.win/", "//BypassedByBloggerPemula(/firefaucet.win/")
-
   
     if not content.endswith("\n"):
         content += "\n"
