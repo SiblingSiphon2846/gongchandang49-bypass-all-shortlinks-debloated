@@ -309,7 +309,7 @@ https://paster.so/*
 /uqozy.com|posterify.net|drinkspartner.com|manishclasses.in|boiscd.com/
 /blogging.techworldx.net|10beasts.biz/
 /starsddl.me\/short/
-/(tech|technews).unblockedgames.world/
+/(tech|technews|cloud).unblockedgames.world/
 /seriezloaded.com.ng\/sl-download\/\?link=/
 /www.itscybertech.com/
 /thegadgetking.in/

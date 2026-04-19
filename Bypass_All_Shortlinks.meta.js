@@ -5,7 +5,7 @@
 // @author     Amm0ni4, gongchandang49
 // @license    Unlicense
 // @noframes
-// @version    96.5-patch0.2.0
+// @version    96.5-patch0.2.1
 // @grant      GM_setValue
 // @grant      GM_getValue
 // @grant      GM_addStyle
@@ -332,7 +332,7 @@
 // @include     /uqozy.com|posterify.net|drinkspartner.com|manishclasses.in|boiscd.com/
 // @include     /blogging.techworldx.net|10beasts.biz/
 // @include     /starsddl.me\/short/
-// @include     /(tech|technews).unblockedgames.world/
+// @include     /(tech|technews|cloud).unblockedgames.world/
 // @include     /seriezloaded.com.ng\/sl-download\/\?link=/
 // @include     /www.itscybertech.com/
 // @include     /thegadgetking.in/
