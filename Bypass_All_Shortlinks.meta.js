@@ -5,7 +5,7 @@
 // @author     Amm0ni4, gongchandang49
 // @license    Unlicense
 // @noframes
-// @version    96.5-patch0.2.2
+// @version    96.5-patch0.2.3
 // @grant      GM_setValue
 // @grant      GM_getValue
 // @grant      GM_addStyle

@@ -247,6 +247,16 @@ def modify_file_with_my_fixes(input_file, output_file):
         """BypassedByBloggerPemula(/(lopteapi|3link|web1s|vuotlinkvip).com/, () => {if (CloudPS(true, true, true)) return; $ = unsafeWindow.jQuery;if (elementExists('form[id=go-link]')) {ReadytoClick("a.btn.btn-success.btn-lg.get-link:not([disabled])", 3);} else if (elementExists('form[id=go-link]')){$('form[id=go-link]').off('submit').on('submit', function(e) {e.preventDefault();"""
         )
 
+    # gcd49 #41 - linkify.ru
+    content = content.replace(
+        """(/ify.ac|go.linkify.ru/, () => {if (!cfg.get('AutoDL')) {BpNote('Auto Download Feature Not Yet Activated!');return;}
+      unsafeWindow.open_href();});""",
+      """(/ify.ac|go.linkify.ru/, () => {
+      let $ = unsafeWindow.jQuery; unsafeWindow.offerClicked = true; if (typeof unsafeWindow.countdown !== 'undefined') unsafeWindow.countdown = 0;
+      let finalUrl = document.body.innerHTML.match(/https:\\/\\/go\\.linkify\\.ru\\/get\\/[^"]+/)?.[0]; if (finalUrl) location.href = finalUrl;
+    });"""
+    )
+
     if not content.endswith("\n"):
         content += "\n"
 

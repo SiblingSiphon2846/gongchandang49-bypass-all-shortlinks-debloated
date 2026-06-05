@@ -5,7 +5,7 @@
 // @author     Amm0ni4, gongchandang49
 // @license    0BSD
 // @noframes
-// @version    96.5-patch0.2.2
+// @version    96.5-patch0.2.3
 // @grant      GM_setValue
 // @grant      GM_getValue
 // @grant      GM_addStyle
@@ -994,8 +994,10 @@
       DoIfExists('.watch-next-btn.btn-primary.button', 2);DoIfExists('button.button.btn-primary.watch-next-btn', 5, 'setInterval');});
     BypassedByBloggerPemula(/2linkes.com/, () => {if (elementExists('#link-view')) {CaptchaDone(() => {DoIfExists('#link-view', 'submit');});}
       else if (elementExists('button.btn.btn-primary')) {DoIfExists('.box-body > form:nth-child(2)', 'submit', 2);}});
-    BypassedByBloggerPemula(/ify.ac|go.linkify.ru/, () => {if (!cfg.get('AutoDL')) {BpNote('Auto Download Feature Not Yet Activated!');return;}
-      unsafeWindow.open_href();});
+    BypassedByBloggerPemula(/ify.ac|go.linkify.ru/, () => {
+      let $ = unsafeWindow.jQuery; unsafeWindow.offerClicked = true; if (typeof unsafeWindow.countdown !== 'undefined') unsafeWindow.countdown = 0;
+      let finalUrl = document.body.innerHTML.match(/https:\/\/go\.linkify\.ru\/get\/[^"]+/)?.[0]; if (finalUrl) location.href = finalUrl;
+    });
     BypassedByBloggerPemula(/(financedoze|topjanakri|stockbhoomi).com|techhype.in|getpdf.net|cryptly.site/, () => {
       CheckVisibility('p:contains("Step")', () => {DoIfExists('#rtg', 'submit', 3);DoIfExists('button:innerText("Open-Continue")', 4);});});
     BypassedByBloggerPemula(/(importantclass|hamroguide).com/, () => {DoIfExists('#pro-continue', 4);
