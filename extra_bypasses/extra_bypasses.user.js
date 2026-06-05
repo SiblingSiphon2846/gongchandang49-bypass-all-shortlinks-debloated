@@ -253,7 +253,7 @@
 // @include     /^https:\/\/devuploads\.com\/.*/
 // @include     /link.paid4link.com/
 // @include     /smallshorts.com/
-// @include     /(kingshort|jobsvb|ffindia|joblicense).in|(oreoauto|theglobaldiary.com)|shopizo.fun|(mtc1|mtc2|mtc3)/
+// @include     /(kingshort|jobsvb|ffindia|joblicense).in|(oreoauto|theglobaldiary.com)|shopizo.fun|(mtc1|mtc2|mtc3|mtc4|mtc5)/
 // @include     /cryptoinsights.site|gadgetsweb.xyz|greenmountmotors.com/
 // @run-at      document-start
 // ==/UserScript==
@@ -1755,7 +1755,7 @@
     }
 
     // ---- shortxlinks     Amm0ni4/issues/363, gongchandang49/issues/14
-    if (/(kingshort|jobsvb|ffindia|joblicense).in|(oreoauto|theglobaldiary.com)|shopizo.fun|(mtc1|mtc2|mtc3)/.test(url)) { afterWindowLoaded(function() { window.adb=0;window.adBlockEnabled=0;window.wpsafelinkCount=0; modifyScript('10000','0');modifyScript('2000','0');modifyScript('000','0'); modifyScript('adBlockEnabled=true','adBlockEnabled=false'); modifyScript('let adBlockEnabled','adBlockEnabled');modifyScript('let wpsafelinkCount','wpsafelinkCount'); let executed=false;const intervalId=setInterval(async()=>{if(executed)return;window.adb=0;window.adBlockEnabled=0;window.wpsafelinkCount=0;const wpsafeWaitElement=document.getElementById('wpsafe-wait2');if(wpsafeWaitElement)wpsafeWaitElement.style.display="block"; document.querySelectorAll('h1').forEach(h1=>{h1.textContent="DO NOT CLICK ANY BUTTON";h1.style.backgroundColor="green";h1.style.color="white";}); await new Promise(resolve=>setTimeout(resolve,3000));try{if(typeof wpsafehuman==="function")await wpsafehuman();}catch(e){}await new Promise(resolve=>setTimeout(resolve,3000));if(typeof wpsafegenerate==="function")await wpsafegenerate();const wpsafelinkhumanElement=document.getElementById('wpsafelinkhuman');if(wpsafelinkhumanElement)wpsafelinkhumanElement.click();const wpsafeLinkElement=document.getElementById('wpsafe-link');if(wpsafeLinkElement){const anchorElement=wpsafeLinkElement.querySelector('a[onclick*="safelink_redirect"]');if(anchorElement){anchorElement.click();executed=true;clearInterval(intervalId);}}},2000);});}
+    if (/(kingshort|jobsvb|ffindia|joblicense).in|(oreoauto|theglobaldiary.com)|shopizo.fun|(mtc1|mtc2|mtc3|mtc4|mtc5)/.test(url)) { afterWindowLoaded(function() { window.adb=0;window.adBlockEnabled=0;window.wpsafelinkCount=0; modifyScript('10000','0');modifyScript('2000','0');modifyScript('000','0'); modifyScript('adBlockEnabled=true','adBlockEnabled=false'); modifyScript('let adBlockEnabled','adBlockEnabled');modifyScript('let wpsafelinkCount','wpsafelinkCount'); let executed=false;const intervalId=setInterval(async()=>{if(executed)return;window.adb=0;window.adBlockEnabled=0;window.wpsafelinkCount=0;const wpsafeWaitElement=document.getElementById('wpsafe-wait2');if(wpsafeWaitElement)wpsafeWaitElement.style.display="block"; document.querySelectorAll('h1').forEach(h1=>{h1.textContent="DO NOT CLICK ANY BUTTON";h1.style.backgroundColor="green";h1.style.color="white";}); await new Promise(resolve=>setTimeout(resolve,3000));try{if(typeof wpsafehuman==="function")await wpsafehuman();}catch(e){}await new Promise(resolve=>setTimeout(resolve,3000));if(typeof wpsafegenerate==="function")await wpsafegenerate();const wpsafelinkhumanElement=document.getElementById('wpsafelinkhuman');if(wpsafelinkhumanElement)wpsafelinkhumanElement.click();const wpsafeLinkElement=document.getElementById('wpsafe-link');if(wpsafeLinkElement){const anchorElement=wpsafeLinkElement.querySelector('a[onclick*="safelink_redirect"]');if(anchorElement){anchorElement.click();executed=true;clearInterval(intervalId);}}},2000);});}
 
 
     /smallshorts.com/.test(url) ? afterDOMLoaded(function() {
@@ -1799,6 +1799,35 @@
     /cryptoinsights.site|gadgetsweb.xyz|greenmountmotors.com/.test(url) ? afterDOMLoaded(function() {
         String.prototype.rot13=function(){return this.replace(/[a-zA-Z]/g,function(c){let code=c.charCodeAt(0),isUpper=c<='Z',base=isUpper?90:122;return code+=13,code>base&&(code-=26),String.fromCharCode(code)})};
         try{let oValue=localStorage.getItem('o');if(oValue){const parsed=JSON.parse(oValue);oValue=parsed.value;oValue=atob(atob(atob(oValue)).rot13());oValue=atob(JSON.parse(oValue).o);window.location.assign(oValue)}}catch(e){}
+    }) : null;
+
+    // gcd49 #20 - whatsagrouplink.online (just2earn.com)
+    /whatsagrouplink.online/.test(url) ? afterDOMLoaded(function() {
+        boostTimers();
+        unsafeWindow.count = 0;
+        unsafeWindow.counter = setInterval(timer, 0);
+        document.getElementById('tp-wait1').style.display = 'none';
+        document.getElementById('tp-generate').style.display = 'block';
+        document.getElementById('tp-snp2').style.display = 'block';
+        clickIfExists('#tp-snp2');
+    }) : null;
+    /earnbox.in/.test(url) ? afterDOMLoaded(function() {
+        boostTimers();
+        unsafeWindow.n = 0;
+        unsafeWindow[imgGi, imgPi, imgCi].forEach(function (i) {
+            i.style.display = "block";
+          });
+        clickIfExists('#g');
+    }) : null;
+
+    /tech4auto.in/.test(url) ? afterDOMLoaded(function() {
+        document.getElementById('link').style.display = 'block';
+        document.getElementById('tp-timex-btn').style.display = 'none';
+        unsafeWindow.count2 = 0;
+        unsafeWindow.clearInterval(count2er);
+        document.getElementById('tp98').style.display = 'block';
+        document.getElementById('tp-timex-btn').style.display = 'none';
+        clickIfExists('#tp98');
     }) : null;
 
 

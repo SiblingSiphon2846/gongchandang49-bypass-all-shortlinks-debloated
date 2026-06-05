@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Acortalink.me Bypass
-// @match        https://acortalink.me/*
+// @include     /acortalink.(me|net)/
 // @run-at       document-start
 // ==/UserScript==
 
@@ -9,7 +9,7 @@
 (function() {
     'use strict';
 
-    if (/acortalink.me/.test(window.location.href)) {
+    if (/acortalink.(me|net)/.test(window.location.href)) {
 
         //Try to click the button after the page is fully loaded
         window.addEventListener('load', function() {

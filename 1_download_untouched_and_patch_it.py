@@ -130,7 +130,10 @@ def modify_file_with_my_fixes(input_file, output_file):
 """
     content = content.replace(linestoremove, "")
 
-    content = content.replace("/cutnet.net|(cutyion|cutynow).com|(exego|cety).app|(jixo|gamco).online/", "/cutnet.net|(cutyion|cutynow|cuttlinks).com|(exego|cety).app|(jixo|jizo|gamco).online/")
+    # gongchandang49 - issues/65 - cuty.io fix
+    content = content.replace(
+        """(/cutnet.net|(cutyion|cutynow).com|(exego|cety).app|(jixo|gamco).online/, () => {ReadytoClick("#submit-button:not([disabled])",2);});""", 
+        """(/cutnet.net|(cutyion|cutynow|cuttlinks|cuttty).com|(exego|cety).app|(jixo|jizo|gamco).online/, () => {ReadytoClick("#submit-button:not([disabled])",0);CaptchaDone(() => {DoIfExists('#submit-button:not([disabled])');});});""")
 
     content = content.replace("/(playonpc|yolasblog|playarcade).online|quins.us|(retrotechreborn|insurelean|ecosolardigest|finance240|2wheelslife|historyofyesterday).com|gally.shop|freeat30.org|ivnlnews.xyz/",
                               "/(playonpc|yolasblog|playarcade).online|(quins|megahosting).us|(retrotechreborn|insurelean|ecosolardigest|finance240|2wheelslife|historyofyesterday|tradeshowrating).com|gally.shop|evegor.net|freeat30.org|(qanin|ivnlnews|jobvox|gfcg).xyz/")
@@ -227,11 +230,22 @@ def modify_file_with_my_fixes(input_file, output_file):
     # p0008874 - gcd49/pulls/35 - pay.inc fix
     content = content.replace("(blogsward|coinjest).com", "(blogsward|coinjest).com|coinsimulator.(io|online)")
 
-    # p0008874 - gcd49/pulls/35 - exe.io fix
-    content = content.replace("(exeo|exego).app|(falpus|exe-urls|exnion).com|4ace.online", "(exeo|exego).app|(falpus|exe-urls|exnion|exe-links|exeygo).com|4ace.online")
+    # gcd49 - #35 #38 #64 - exe.io fix
+    content = content.replace(
+        """BypassedByBloggerPemula(/(exeo|exego).app|(falpus|exe-urls|exnion).com|4ace.online/, () => {
+      DoIfExists('#invisibleCaptchaShortlink', 2);DoIfExists('#before-captcha', 'submit', 3);});""",
+        """BypassedByBloggerPemula(/(exeo|exego).app|(falpus|exe-urls|exnion|exe-links|exeygo).com|4ace.online/, () => {
+      DoIfExists('#invisibleCaptchaShortlink', 1);DoIfExists('#before-captcha', 'submit', 1);CaptchaDone(() => {
+        DoIfExists('#submit-button:not([disabled])'); DoIfExists('#invisibleCaptchaShortlink', 0); }); ReadytoClick('#go-submit:not([disabled])', 6); });""")
 
     # gongchandang49 - issues/13 - new gplinks domains
     content = content.replace("mangareleasedate|sabkiyojana|teqwit|bulkpit|odiafm).com|(loopmyhub|thepopxp).shop|cryptoblast.online", "mangareleasedate|sabkiyojana|teqwit|bulkpit|odiafm|qrixpe).com|(loopmyhub|thepopxp).shop|(cryptoblast|powergam).online")
+
+    # gongchandang49 - remove catchall regex causing issues on exeygo
+    content = content.replace(
+        """BypassedByBloggerPemula(/.*/, () => {if (CloudPS(true, true, true)) return;let List = ['lopteapi.com', '3link.co', 'web1s.com', 'vuotlink.vip'], $ = unsafeWindow.jQuery;if (elementExists('form[id=go-link]') && List.includes(location.host)) {ReadytoClick("a.btn.btn-success.btn-lg.get-link:not([disabled])", 3);} else if (elementExists('form[id=go-link]')){$('form[id=go-link]').off('submit').on('submit', function(e) {e.preventDefault();""",
+        """BypassedByBloggerPemula(/(lopteapi|3link|web1s|vuotlinkvip).com/, () => {if (CloudPS(true, true, true)) return; $ = unsafeWindow.jQuery;if (elementExists('form[id=go-link]')) {ReadytoClick("a.btn.btn-success.btn-lg.get-link:not([disabled])", 3);} else if (elementExists('form[id=go-link]')){$('form[id=go-link]').off('submit').on('submit', function(e) {e.preventDefault();"""
+        )
 
     if not content.endswith("\n"):
         content += "\n"
@@ -245,5 +259,5 @@ if __name__ == "__main__":
     file_0 = "untouched_Bypass_All_Shortlinks_0.user.js"
     file = "untouched_Bypass_All_Shortlinks_patched.user.js"
 
-    download_file_if_not_exists(url1, file_0)
+    #download_file_if_not_exists(url1, file_0)
     modify_file_with_my_fixes(file_0, file)
