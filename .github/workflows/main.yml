@@ -18,27 +18,28 @@ jobs:
   sync:
     runs-on: ubuntu-latest
 
+    env:
+      CBERG_HTTPS: https://codeberg.org/gongchandang49/bypass-all-shortlinks-debloated.git
+      CBERG_BRANCH: main
+      GH_BRANCH: main
+      GIT_USER: "gongchandang49"
+      GIT_EMAIL: "gongchandang49@noreply.codeberg.org"
+
     steps:
       - name: Checkout GitHub repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
 
       - name: Configure Git
         run: |
-          git config --global user.name "gongchandang49"
-          git config --global user.email "170948611+gongchandang49@users.noreply.github.com"
+          git config --global user.name ${GIT_USER}
+          git config --global user.email ${GIT_EMAIL}
       - name: Pull from Codeberg
         run: |
-          git remote add codeberg https://codeberg.org/gongchandang49/bypass-all-shortlinks-debloated.git
-          git fetch codeberg
-          git checkout main
-          git reset --hard codeberg/main
-
-          sudo apt-get update  > /dev/null 2>&1
-          sudo apt-get install git-filter-repo  > /dev/null 2>&1
-          git filter-repo --email-callback '
-            return email if email != b"gongchandang49@noreply.codeberg.org" else b"170948611+gongchandang49@users.noreply.github.com"
-            ' --force
-          git remote add origin https://github.com/${{ github.repository }}.git
+          git remote remove codeberg || true
+          git remote add codeberg "${CBERG_HTTPS}"
+          git fetch --prune codeberg "${CBERG_BRANCH}"
+          git switch -C "${GH_BRANCH}" "codeberg/${CBERG_BRANCH}"
+          git checkout -f "${GH_BRANCH}"
       - name: Push changes to GitHub
         run: |
-          git push --force origin main
+          git push --force origin "${GH_BRANCH}"
